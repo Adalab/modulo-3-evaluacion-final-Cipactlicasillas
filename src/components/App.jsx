@@ -34,6 +34,11 @@ function App() {
     )
     .filter((eachContact) => eachContact.house.includes(filters.house));
 
+  const handleInputFilter = (ev) => {
+    const { id, value } = ev.target;
+    setFilters({ ...filters, [id]: value });
+  };
+
   return (
     <>
       <header>
@@ -44,18 +49,18 @@ function App() {
           Buscar por personaje:{" "}
           <span>
             <input
-              onInput={handleInputFilterName}
+              onInput={handleInputFilter}
               value={filters.name}
               type="text"
-              name="filterName"
-              id="filterName"
+              name="name"
+              id="name"
               placeholder="Filtra los contactos por nombre"
             />
           </span>
           Selecciona la casa
           <span>
             <select
-              onInput={handleInputFilterHouse}
+              onInput={handleInputFilter}
               value={filters.house}
               name="house"
               id="house"
