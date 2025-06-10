@@ -1,10 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../styles/App.scss";
-import data from "../components/data/contacts.json";
 import List from "./contacts/List";
 
 function App() {
-  const [contacts, setContacts] = useState(data);
+  const [contacts, setContacts] = useState([]);
+
+  useEffect(() => {
+    fetch("https://hp-api.onrender.com/api/characters")
+      .then((res) => res.json())
+      .then((data) => {
+        setContacts(data);
+      });
+  }, []);
   return (
     <form action="">
       <header>
