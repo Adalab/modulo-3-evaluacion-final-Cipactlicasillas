@@ -1,4 +1,45 @@
 @use "./core/reset";
-li {
-  border: solid 2px blueviolet;
+@use "./core/variables";
+@use "./layout/page";
+@use "./layout/header";
+@use "./components/contact-list";
+@use "./components/new-contact";
+@use "./components/card";
+
+/* Header and Listing are imported from each React Component */
+
+.formnew {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+
+  .title {
+    grid-column: span 2;
+  }
+
+  .form__line {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin-bottom: 0.5rem;
+  }
+}
+
+input,
+select,
+button {
+  background-color: transparent;
+  color: cyan;
+  padding: 0.25rem;
+  margin-block: 0.5rem;
+  font-size: 20px;
+  width: 30ch;
+}
+
+option {
+  background-color: black;
+}
+
+label {
+  display: inline-block;
+  width: 10ch;
 }

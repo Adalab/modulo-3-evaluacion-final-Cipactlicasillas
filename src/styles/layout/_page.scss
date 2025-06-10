@@ -12,7 +12,6 @@
   background-color: var(--background);
 }
 
-
 .darkmode {
   font-size: 18px;
 }
@@ -22,9 +21,8 @@
 }
 
 .darkmode .card {
-  background-color: var(--background);  
+  background-color: var(--background);
 }
-
 
 .darkmode input {
   background-color: var(--background);
@@ -39,9 +37,9 @@
   border: solid 1px var(--blue);
 }
 
-.darkmode input[type=submit] {
+.darkmode input[type="submit"] {
   background-color: var(--background);
   color: var(--blue);
   border: solid 1px var(--blue);
-  cursor:pointer;
+  cursor: pointer;
 }

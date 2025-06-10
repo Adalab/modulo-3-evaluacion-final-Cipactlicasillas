@@ -1,0 +1,32 @@
+.contact {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 1rem;
+  overflow-x: auto;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.contact_item {
+  flex: 0 0 auto;
+
+  & > * {
+    margin: 3px 0;
+  }
+}
+
+@media screen and (min-width: 43rem) {
+  .contact__list {
+    width: 41rem;
+  }
+}
+
+@media screen and (min-width: 66rem) {
+  .contact__list {
+    width: fit-content;
+    justify-content: space-between;
+    margin-inline: 1rem;
+  }
+}

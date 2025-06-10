@@ -34,9 +34,9 @@ function App() {
     .filter((eachContact) => eachContact.house.includes(filters.house));
 
   return (
-    <>
-      <header>
-        <h1>El Profeta Digital</h1>
+    <div className="page darkmode">
+      <header className="header">
+        <h1 className="header__title">El Profeta Digital</h1>
       </header>
       <main>
         <Routes>
@@ -56,7 +56,7 @@ function App() {
           />
         </Routes>
       </main>
-    </>
+    </div>
   );
 }
 

@@ -2,9 +2,9 @@ import Item from "./Item";
 
 function List({ contacts }) {
   return (
-    <ul>
+    <ul className="contact">
       {contacts.map((eachContactObj) => (
-        <li key={eachContactObj.id}>
+        <li key={eachContactObj.id} className="contact_item">
           <Item eachContactObj={eachContactObj} />
         </li>
       ))}
