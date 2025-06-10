@@ -1,6 +1,8 @@
 import { useState } from "react";
 import "../styles/App.scss";
 import data from "../components/data/contacts.json";
+import List from "./contacts/List";
+
 function App() {
   const [contacts, setContacts] = useState(data);
   return (
@@ -9,15 +11,7 @@ function App() {
         <h1>Listado de personajes</h1>
       </header>
       <main>
-        <ul>
-          {data.map((eachContactObj) => (
-            <li key={eachContactObj.patronus}>
-              <p>Foto: {eachContactObj.image}</p>
-              <p>Nombre: {eachContactObj.name}</p>
-              <p>Especie: {eachContactObj.species}</p>
-            </li>
-          ))}
-        </ul>
+        <List contacts={contacts} />
       </main>
     </form>
   );
