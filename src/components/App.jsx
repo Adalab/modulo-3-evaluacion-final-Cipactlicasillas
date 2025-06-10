@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import "../styles/App.scss";
-import List from "./contacts/List";
+import { Routes, Route } from "react-router";
+
+import ListingPage from "./pages/ListingPage";
+import DetailPage from "./pages/DetailPage";
 
 function App() {
   const [contacts, setContacts] = useState([]);
-
   const [filters, setFilters] = useState({
     name: "",
     house: "",
@@ -18,12 +20,9 @@ function App() {
       });
   }, []);
 
-  const handleInputFilterName = (ev) => {
-    setFilters({ ...filters, name: ev.target.value });
-  };
-
-  const handleInputFilterHouse = (ev) => {
-    setFilters({ ...filters, house: ev.target.value });
+  const handleInputFilter = (ev) => {
+    const { id, value } = ev.target;
+    setFilters({ ...filters, [id]: value });
   };
 
   const filteredContacts = contacts
@@ -34,45 +33,28 @@ function App() {
     )
     .filter((eachContact) => eachContact.house.includes(filters.house));
 
-  const handleInputFilter = (ev) => {
-    const { id, value } = ev.target;
-    setFilters({ ...filters, [id]: value });
-  };
-
   return (
     <>
       <header>
         <h1>El Profeta Digital</h1>
       </header>
       <main>
-        <form>
-          Buscar por personaje:{" "}
-          <span>
-            <input
-              onInput={handleInputFilter}
-              value={filters.name}
-              type="text"
-              name="name"
-              id="name"
-              placeholder="Filtra los contactos por nombre"
-            />
-          </span>
-          Selecciona la casa
-          <span>
-            <select
-              onInput={handleInputFilter}
-              value={filters.house}
-              name="house"
-              id="house"
-            >
-              <option value="Gryffindor">Gryffindor</option>
-              <option value="Slytherin">Slytherin</option>
-              <option value="Hufflepuff">Hufflepuff</option>
-              <option value="Ravenclaw">Ravenclaw</option>
-            </select>
-          </span>
-        </form>
-        <List contacts={filteredContacts} />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <ListingPage
+                filteredContacts={filteredContacts}
+                filters={filters}
+                handleInputFilter={handleInputFilter}
+              />
+            }
+          />
+          <Route
+            path="/detail/:name"
+            element={<DetailPage contacts={contacts} />}
+          />
+        </Routes>
       </main>
     </>
   );
