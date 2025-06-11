@@ -37,7 +37,7 @@ Aplicación en React que muestra los personajes de Harry Potter con funcionalida
 - 	Más datos en la vista detalle.
 -   Optimización de rendimiento y diseño visual.
 
-⸻
+--- 
 
 ## 👩‍💻 Autora
 - @Cipactlicasillas – Bootcamp Adalab.
